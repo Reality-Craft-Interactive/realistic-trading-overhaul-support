@@ -1,0 +1,39 @@
+name: Mod compatibility
+description: Report a reproducible conflict between RTO and another mod
+title: "[Compatibility]: "
+labels:
+  - compatibility
+  - needs-triage
+body:
+  - type: input
+    id: rto-stack
+    attributes:
+      label: RTO / Minecraft / NeoForge versions
+      placeholder: RTO 0.1.0, Minecraft 26.3, NeoForge 26.3.0.84
+    validations:
+      required: true
+  - type: input
+    id: other-mod
+    attributes:
+      label: Conflicting mod and exact version
+    validations:
+      required: true
+  - type: textarea
+    id: comparison
+    attributes:
+      label: Isolation result
+      description: Explain the result with RTO only, the other mod only, and both together.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Minimal reproduction
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs and crash reports
+    validations:
+      required: true

@@ -1,0 +1,53 @@
+name: Crash report
+description: Report a client or server crash involving RTO
+title: "[Crash]: "
+labels:
+  - crash
+  - needs-triage
+body:
+  - type: checkboxes
+    attributes:
+      label: Before submitting
+      options:
+        - label: I reproduced this on the newest published RTO build.
+          required: true
+        - label: I searched existing issues for the same crash.
+          required: true
+        - label: I will attach the complete crash report and `latest.log`.
+          required: true
+  - type: input
+    id: versions
+    attributes:
+      label: RTO / Minecraft / NeoForge versions
+      placeholder: RTO 0.1.0, Minecraft 26.3, NeoForge 26.3.0.84
+    validations:
+      required: true
+  - type: dropdown
+    id: side
+    attributes:
+      label: Crash side
+      options:
+        - Client
+        - Dedicated server
+        - Both
+    validations:
+      required: true
+  - type: textarea
+    id: action
+    attributes:
+      label: What happened immediately before the crash?
+    validations:
+      required: true
+  - type: textarea
+    id: mods
+    attributes:
+      label: Complete mod list
+    validations:
+      required: true
+  - type: textarea
+    id: reports
+    attributes:
+      label: Crash report and latest.log
+      description: Drag both files here. Do not paste only the final exception line.
+    validations:
+      required: true

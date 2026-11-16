@@ -1,0 +1,91 @@
+name: Bug report
+description: Report reproducible behavior that appears incorrect
+title: "[Bug]: "
+labels:
+  - bug
+  - needs-triage
+body:
+  - type: checkboxes
+    attributes:
+      label: Before submitting
+      options:
+        - label: I reproduced this on the newest published RTO build.
+          required: true
+        - label: I searched existing issues for the same problem.
+          required: true
+        - label: I removed secrets and personal information from attached logs.
+          required: true
+  - type: input
+    id: rto-version
+    attributes:
+      label: RTO version
+      placeholder: 0.1.0
+    validations:
+      required: true
+  - type: input
+    id: minecraft-version
+    attributes:
+      label: Minecraft version
+      placeholder: "26.3"
+    validations:
+      required: true
+  - type: input
+    id: neoforge-version
+    attributes:
+      label: NeoForge version
+      placeholder: 26.3.0.84
+    validations:
+      required: true
+  - type: dropdown
+    id: installation
+    attributes:
+      label: Installation
+      options:
+        - Single-player
+        - Client and dedicated server
+        - Client only
+        - Dedicated server only
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction steps
+      description: Start from a fresh launch and list the smallest reliable sequence.
+      placeholder: |
+        1. Open ...
+        2. Add ...
+        3. Confirm ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+    validations:
+      required: true
+  - type: textarea
+    id: mods
+    attributes:
+      label: Other installed mods
+      description: Paste the complete mod list or attach it. Say "None" if RTO is the only mod.
+    validations:
+      required: true
+  - type: textarea
+    id: config
+    attributes:
+      label: Relevant configuration
+      description: Paste only changed or relevant RTO keys.
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs
+      description: Drag in `latest.log` and any crash report, or provide a stable paste link.
+    validations:
+      required: true

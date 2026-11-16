@@ -1,0 +1,12 @@
+{
+  "homepage": "https://www.curseforge.com/minecraft/mc-mods/realistic-trading-overhaul",
+  "26.3": {
+    "0.1.0": "First official release: cart trading for villagers and wandering traders, and the in-game trade editor for operators.",
+    "0.1.0-alpha.3": "Changelog: https://www.curseforge.com/minecraft/mc-mods/realistic-trading-overhaul/files/9637871",
+    "0.1.0-alpha.2": "First public alpha: cart trading for villagers and wandering traders, and the in-game trade editor for operators."
+  },
+  "promos": {
+    "26.3-latest": "0.1.0",
+    "26.3-recommended": "0.1.0"
+  }
+}

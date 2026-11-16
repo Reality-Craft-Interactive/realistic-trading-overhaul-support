@@ -1,0 +1,44 @@
+name: Sync GitHub Wiki
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "wiki/**"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: support-wiki-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out canonical Wiki Markdown
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Push canonical pages to GitHub Wiki
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          if ! git clone "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.wiki.git" wiki-repository; then
+            echo "::warning::Create and save the first Home page in the GitHub Wiki UI, then rerun this workflow."
+            exit 0
+          fi
+          rsync -a --delete --exclude .git/ wiki/ wiki-repository/
+          git -C wiki-repository config user.name "rto-wiki-bot"
+          git -C wiki-repository config user.email "rto-wiki-bot@users.noreply.github.com"
+          git -C wiki-repository add --all
+          if git -C wiki-repository diff --cached --quiet; then
+            echo "Wiki is already current."
+            exit 0
+          fi
+          git -C wiki-repository commit -m "docs: sync canonical Wiki pages"
+          git -C wiki-repository push origin master

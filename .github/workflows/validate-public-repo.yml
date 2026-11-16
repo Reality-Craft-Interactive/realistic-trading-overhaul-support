@@ -1,0 +1,36 @@
+name: Validate public repository
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  privacy-boundary:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out support content
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Reject source, binaries, and private-development material
+        shell: bash
+        run: |
+          set -euo pipefail
+          forbidden="$(find . -path ./.git -prune -o -type f \
+            \( -name '*.jar' -o -name '*.java' -o -name '*.class' \
+               -o -name 'build.gradle' -o -name 'gradle.properties' \
+               -o -name 'settings.gradle' -o -name 'AGENTS.md' \) -print)"
+          test -z "${forbidden}"
+          test ! -d vault
+          test ! -d graphify-out
+          test ! -d src/main/java
+          test ! -d src/test/java
+
+      - name: Validate JSON
+        run: |
+          python -m json.tool update.json >/dev/null
+          python -m json.tool releases/index.json >/dev/null

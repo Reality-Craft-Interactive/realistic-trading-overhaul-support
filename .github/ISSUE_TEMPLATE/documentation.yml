@@ -1,0 +1,32 @@
+name: Documentation correction
+description: Report a wiki or README page that is wrong, unclear, or missing
+title: "[Docs]: "
+labels:
+  - documentation
+  - needs-triage
+body:
+  - type: input
+    id: page
+    attributes:
+      label: Page
+      description: Link to the wiki or repository page.
+      placeholder: https://github.com/Reality-Craft-Interactive/realistic-trading-overhaul-support/wiki/Installation
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What is wrong or missing
+      description: Quote the sentence or section if it helps.
+    validations:
+      required: true
+  - type: textarea
+    id: correction
+    attributes:
+      label: Suggested correction
+      description: What the page should say instead, if you know.
+  - type: input
+    id: versions
+    attributes:
+      label: RTO / Minecraft / NeoForge versions you checked against
+      placeholder: RTO 0.1.0, Minecraft 26.3, NeoForge 26.3.0.84
