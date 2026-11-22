@@ -1,6 +1,16 @@
 {
   "releases": [
     {
+      "version": "0.2.0-alpha.1",
+      "channel": "alpha",
+      "minecraft": "26.3",
+      "loader": "NeoForge 26.3.0.84 or later",
+      "published": "2026-11-22",
+      "file": "realistic-trading-overhaul-26.3-0.2.0-alpha.1.jar",
+      "curseforge": "https://www.curseforge.com/minecraft/mc-mods/realistic-trading-overhaul/files/9749535",
+      "sha256": "34a061f442f644f8151337bb720b3a631b16da08f302757478505acd2319c9e3"
+    },
+    {
       "version": "0.1.0",
       "channel": "stable",
       "minecraft": "26.3",
