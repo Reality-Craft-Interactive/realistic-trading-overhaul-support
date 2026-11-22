@@ -6,7 +6,7 @@ problem.
 <!-- supported-table:start -->
 | Minecraft | Loader | Java | Latest | Recommended | Support |
 | --- | --- | --- | --- | --- | --- |
-| 26.3 | NeoForge 26.3.0.84 or later | 25 | 0.1.0 | 0.1.0 | Stable |
+| 26.3 | NeoForge 26.3.0.84 or later | 25 | 0.2.0-alpha.1 | 0.1.0 | Stable |
 <!-- supported-table:end -->
 
 RTO must be installed on both the client and the server; a client without it cannot join a server
