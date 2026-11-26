@@ -20,9 +20,9 @@ Confirm, and gives operators an in-game editor for the trade pools villagers dra
 
 ## Current release status
 
-The recommended build is **0.1.0**, the first official release, for Minecraft 26.3 and NeoForge
-26.3.0.84 or later. **0.2.0-alpha.1** is an alpha preview of the overhauled trading screen; it
-changes the network data, so update the server and every client together. Download either from
+The recommended build is **0.3.0**, for Minecraft 26.3 and NeoForge 26.3.0.84 or later. It redesigns
+the trading screen and replaces the 0.2.0-alpha.1 preview. The server and every player need the same
+version. Download it from
 [CurseForge](https://www.curseforge.com/minecraft/mc-mods/realistic-trading-overhaul). See the
 [release history](wiki/Release-History.md) for every published file.
 
